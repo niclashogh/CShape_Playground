@@ -5,7 +5,7 @@ namespace CShape_Playground.Enumeration
 
     public class _Enum
     {
-        public static void Method()
+        public void Method()
         {
             TraficLight light = TraficLight.Red; //New instance and init
             TraficLight light2 = TraficLight.Green; //New instance and init

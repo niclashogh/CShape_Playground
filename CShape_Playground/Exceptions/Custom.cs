@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CShape_Playground.Process
+namespace CShape_Playground.Exceptions
 {
-    public class _Process
+    public class Custom
     {
         //
     }

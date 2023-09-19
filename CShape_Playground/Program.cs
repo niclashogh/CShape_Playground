@@ -1,6 +1,11 @@
 ﻿using CShape_Playground.Array;
 using CShape_Playground.Enumeration;
 using CShape_Playground.Loop;
+using CShape_Playground.Processes;
+using CShape_Playground.Scheduling;
+using CShape_Playground.Stream;
+using CShape_Playground.Threading;
+using CShape_Playground.Variable;
 
 namespace CShape_Playground
 {
@@ -8,55 +13,85 @@ namespace CShape_Playground
     {
         static void Main(string[] args)
         {
-            //Namespace_Array();
-            //Namespace_Delegate();
-            //Namespace_ObserverPattern();
-            //Namespace_Enum();
-            //Namespace_Loop(); //Not Complete
+            //Manual Config
+            Namespace_Array(0, false, true);
+            Namespace_Delegate(true);
+            Namespace_ObserverPattern(true);
+            Namespace_Enum(true);
+            Namespace_Loop(0, false, true); //Not Complete
+            Namespace_Process(args, true);
+            Namespace_Scheduling(true); //Idk ...
+            Namespace_Stream(5, false, true); //Not Complete
+            Namespace_Threading(false); //Not Complete
+            Namespace_Variable(0, false, true);
             
         }
 
-        internal static void Namespace_Array()
+        internal static void Namespace_Array(int section, bool runAll, bool skipNamespace)
         {
+            if (skipNamespace) return;
+
             _ArrayList _arrayList = new();
+            if (section == 0 || runAll)
+            {
+                _arrayList.Main();
+                Console.ReadLine();
+                Console.Clear();
+            }
+
             _Dictionary _dictionary = new();
+            if (section == 1 || runAll)
+            {
+                _dictionary.Main();
+                Console.ReadLine();
+                Console.Clear();
+            }
+
             _List _list = new();
+            if (section == 2 || runAll)
+            {
+                _list.Main();
+                Console.ReadLine();
+                Console.Clear();
+            }
+
             _ListDictonary _listDictonary = new();
+            if (section == 3 || runAll)
+            {
+                _listDictonary.Main();
+                Console.ReadLine();
+                Console.Clear();
+            }
+
             FindOccaurance _findOccaurance = new();
+            if (section == 4 || runAll)
+            {
+                _findOccaurance.Main();
+                Console.ReadLine();
+                Console.Clear();
+            }
+
             Array.Math _math = new();
+            if (section == 5 || runAll)
+            {
+                _math.Avg();
+                Console.ReadLine();
+                Console.Clear();
+            }
+
             Sort _sort = new();
-
-            _arrayList.Main();
-            Console.ReadLine();
-            Console.Clear();
-
-            _dictionary.Main();
-            Console.ReadLine();
-            Console.Clear();
-
-            _list.Main();
-            Console.ReadLine();
-            Console.Clear();
-
-            _listDictonary.Main();
-            Console.ReadLine();
-            Console.Clear();
-
-            _findOccaurance.Main();
-            Console.ReadLine();
-            Console.Clear();
-
-            _math.Avg();
-            Console.ReadLine();
-            Console.Clear();
-
-            _sort.Main();
-            Console.ReadLine();
-            Console.Clear();
+            if (section == 6 || runAll)
+            {
+                _sort.Main();
+                Console.ReadLine();
+                Console.Clear();
+            }
         }
 
-        internal static void Namespace_Delegate()
+        internal static void Namespace_Delegate(bool skipNamespace)
         {
+            if (skipNamespace) return;
+
             //Init new Publicher
             Delegate.Publicher p1 = new("Pub 1");
 
@@ -78,8 +113,10 @@ namespace CShape_Playground
             Console.Clear();
         }
 
-        internal static void Namespace_ObserverPattern()
+        internal static void Namespace_ObserverPattern(bool skipNamespace)
         {
+            if (skipNamespace) return;
+
             //Init Publicher
             var p1 = new Observer_Pattern.Publicher("Publicher 1");
 
@@ -105,24 +142,158 @@ namespace CShape_Playground
 
         }
 
-        internal static void Namespace_Enum()
+        internal static void Namespace_Enum(bool skipNamespace)
         {
-            _Enum.Method();
+            if (skipNamespace) return;
+
+            _Enum _enum = new();
+            _enum.Method();
         }
 
-        internal static void Namespace_Loop()
+        internal static void Namespace_Loop(int section, bool runAll, bool skipNamespace)
         {
-            _DoWhile.Method();
-            Console.ReadLine();
-            Console.Clear();
+            if (skipNamespace) return;
 
-            _Switch.Method();
-            Console.ReadLine();
-            Console.Clear();
+            // Do-While
+            if (section == 0 || runAll)
+            {
+                _DoWhile.Method();
+                Console.ReadLine();
+                Console.Clear();
+            }
 
-            _While.Method();
+            // Switch
+            if (section == 1 || runAll)
+            {
+                _Switch.Method();
+                Console.ReadLine();
+                Console.Clear();
+            }
+
+            // While
+            if (section == 2 || runAll)
+            {
+                _While.Method();
+                Console.ReadLine();
+                Console.Clear();
+            }
+        }
+
+        internal static void Namespace_Variable(int section, bool runAll, bool skipNamespace)
+        {
+            if (skipNamespace) return;
+
+            _Char _char = new();
+            if (section == 0 || runAll)
+            {
+                Console.WriteLine("Press a key");
+                _char.IdentifyCharType((Char)Console.Read());
+                _char.FindChar();
+                Console.ReadLine();
+                Console.Clear();
+            }
+
+            _DataTime _dateTime = new();
+            if (section == 1 || runAll)
+            {
+                _dateTime.CurrentDate(DateTime.Now);
+                _dateTime.RelativeDate(DateTime.Now);
+                _dateTime.SpanDate(DateTime.Now);
+                Console.ReadLine();
+                Console.Clear();
+            }
+
+            _String _string = new();
+            string input = "Der skal ikke meget til at man en dag sidder med lort ned af benet";
+            if (section == 2 || runAll)
+            {
+                _string.Index(input);
+                _string.Contains(input);
+                _string.Lenghts(input);
+                _string.CharIndex(input);
+                _string.DoubleSplit();
+                Console.ReadLine();
+                Console.Clear();
+            }
+
+            _Int _int = new();
+            if (section == 3 || runAll)
+            {
+                _int.TypeCasting(15);
+                _int.IntParse();
+            }
+
+        }
+
+        internal static void Namespace_Process(string[] args, bool skipNamespace)
+        {
+            if (skipNamespace) return;
+
+            _Process _process = new();
+            _process.Method(args);
+
+        }
+
+        internal static void Namespace_Scheduling(bool skipNamespace)
+        {
+            if (skipNamespace) return;
+
+            PCB pcb = new("Hacking", 1);
+            PCB.Retrieve(pcb);
+
+            Console.WriteLine(pcb.ToString());
             Console.ReadLine();
-            Console.Clear();
+        }
+
+        internal static void Namespace_Stream(int section, bool runAll, bool skipNamespace)
+        {
+            if (skipNamespace) return;
+
+            Read read = new();
+            // TXT
+            if (section == 0 || runAll)
+            {
+                read.ReadTXT();
+            }
+
+            // CSV
+            if (section == 1 || runAll)
+            {
+                read.ReadCSV();
+            }
+
+            // XLSX
+            if (section == 2 || runAll)
+            {
+                read.ReadXLSX();
+            }
+
+            Write write = new();
+            // TXT
+            if (section == 3 || runAll)
+            {
+                write.WriteTXT();
+            }
+
+            // CSV
+            if (section == 4 || runAll)
+            {
+                write.WriteCSV();
+            }
+
+            // XLSX
+            if (section == 5 || runAll)
+            {
+                write.WriteXLSX();
+            }
+        }
+
+        internal static void Namespace_Threading(bool skipNamespace)
+        {
+            if (skipNamespace) return;
+
+            _Threading _threading = new();
+            _threading.Method();
         }
     }
 }
